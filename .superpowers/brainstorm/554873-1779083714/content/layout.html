@@ -1,0 +1,62 @@
+<h2>RSS 阅读器布局方案</h2>
+<p class="subtitle">选择一种整体布局结构，决定阅读器的信息架构</p>
+
+<div class="options">
+  <div class="option" data-choice="three-panel" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>三栏式（经典邮件风格）</h3>
+      <p>左侧：订阅源列表 | 中间：文章列表 | 右侧：文章内容。信息密度高，效率优先，类似 Reeder / NetNewsWire。</p>
+    </div>
+  </div>
+  <div class="option" data-choice="two-panel" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>两栏式（列表 + 详情）</h3>
+      <p>左侧/顶部：订阅源导航 | 右侧/主体：文章列表 + 点击展开具体内容。更简洁，适合移动端友好的响应式设计。</p>
+    </div>
+  </div>
+  <div class="option" data-choice="magazine" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>杂志/瀑布流</h3>
+      <p>卡片式网格或瀑布流展示文章摘要和封面图。视觉丰富，适合以浏览和发现为主的阅读体验，类似 Flipboard。</p>
+    </div>
+  </div>
+</div>
+
+<h3 style="margin-top:32px">快速对比</h3>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">方案 A: 三栏式</div>
+    <div class="mockup-body" style="display:flex;gap:8px;height:200px">
+      <div class="mock-sidebar" style="width:80px;font-size:11px">订阅源<br>• 阮一峰<br>• HackerNews<br>• V2EX</div>
+      <div class="mock-content" style="flex:1;font-size:11px;overflow:hidden">文章列表<br><br>▸ 科技爱好者周刊<br>▸ Rust 异步编程<br>▸ 如何设计 API</div>
+      <div class="mock-content" style="flex:1.5;font-size:11px">文章内容<br><br>本周科技动态...<br>AI 领域的最新进展<br>包括 GPT-5 发布...</div>
+    </div>
+  </div>
+  <div class="mockup">
+    <div class="mockup-header">方案 B: 两栏式</div>
+    <div class="mockup-body" style="display:flex;gap:8px;height:200px">
+      <div class="mock-sidebar" style="width:80px;font-size:11px">📡 全部<br>⭐ 收藏<br>🏷️ 标签</div>
+      <div class="mock-content" style="flex:1;font-size:11px;overflow:hidden">
+        <div style="border-bottom:1px dashed #666;padding:4px 0">▸ Rust 异步编程简介 <span style="color:#999">2h前</span></div>
+        <div style="border-bottom:1px dashed #666;padding:4px 0">▸ TypeScript 5.5 发布 <span style="color:#999">3h前</span></div>
+        <div style="border-bottom:1px dashed #666;padding:4px 0;background:rgba(255,255,255,0.05)">▸ 如何设计好的 API <span style="color:#999">5h前</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">方案 C: 杂志式</div>
+    <div class="mockup-body" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;height:200px">
+      <div class="placeholder" style="height:60px;font-size:11px">🐍 Python 3.14<br><small style="color:#999">新特性一览</small></div>
+      <div class="placeholder" style="height:80px;font-size:11px;grid-row:span 2">🚀 马斯克<br><small style="color:#999">Starship 第五次试飞</small></div>
+      <div class="placeholder" style="height:60px;font-size:11px">📱 Flutter 4.0<br><small style="color:#999">跨平台新方案</small></div>
+      <div class="placeholder" style="height:60px;font-size:11px">🔒 零日漏洞<br><small style="color:#999">影响全球服务器</small></div>
+    </div>
+  </div>
+</div>
