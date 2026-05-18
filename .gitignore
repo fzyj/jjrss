@@ -40,5 +40,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# superpowers
+.superpowers/
+
 # SQLite database
 data/
