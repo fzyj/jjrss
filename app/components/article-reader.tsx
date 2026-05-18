@@ -131,12 +131,14 @@ export function ArticleReader({ articleId }: ArticleReaderProps) {
       <div className="flex-1 overflow-y-auto p-6">
         {fullTextLoading ? (
           <div className="text-xs text-neutral-400">Extracting full content...</div>
-        ) : (
+        ) : showFullText ? (
           <div
-            className={`text-sm leading-relaxed max-w-none ${showFullText ? "reader-content" : ""}`}
-            dangerouslySetInnerHTML={showFullText ? { __html: content } : undefined}
-          >
-            {!showFullText && content}
+            className="text-sm leading-relaxed max-w-none reader-content"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
+        ) : (
+          <div className="text-sm leading-relaxed max-w-none">
+            {content}
           </div>
         )}
       </div>
