@@ -1,5 +1,5 @@
 import { getDb } from "./db";
-import { addFeed, resolveFeed } from "./rss";
+import { addFeed } from "./rss";
 
 interface OpmlOutline {
   text: string;
@@ -16,11 +16,12 @@ function parseOpmlXml(xml: string): OpmlOutline[] {
   if (!bodyMatch) return outlines;
 
   const bodyContent = bodyMatch[1];
-  const outlineRegex = /<outline\s[^>]*\/>/g;
+  // Match both self-closing <outline ... /> and non-self-closing <outline ... >
+  const outlineRegex = /<outline\s([^>]*?)\s*\/?>/g;
   let match: RegExpExecArray | null;
 
   while ((match = outlineRegex.exec(bodyContent)) !== null) {
-    const attrs = match[0];
+    const attrs = match[1];
     const textMatch = attrs.match(/text="([^"]*)"/);
     const titleMatch = attrs.match(/title="([^"]*)"/);
     const xmlUrlMatch = attrs.match(/xmlUrl="([^"]*)"/);

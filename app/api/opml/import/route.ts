@@ -9,10 +9,10 @@ export async function POST(request: NextRequest) {
     if (contentType.includes("multipart/form-data")) {
       const formData = await request.formData();
       const file = formData.get("file");
-      if (!file || !(file instanceof File)) {
+      if (!file || typeof file !== "object" || !("text" in file)) {
         return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
       }
-      xmlContent = await file.text();
+      xmlContent = await (file as File).text();
     } else {
       xmlContent = await request.text();
     }
