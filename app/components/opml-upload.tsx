@@ -31,6 +31,7 @@ export function OpmlUpload({ onImported }: OpmlUploadProps) {
         body: formData,
       });
       const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Import failed");
       setResult(data);
       onImported();
     } catch (err) {
